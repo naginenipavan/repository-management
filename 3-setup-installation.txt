@@ -1,0 +1,20 @@
+
+============================================================================
+Repository Management - Setup & Installation:-
+============================================================================
+
+https://learn.sonatype.com/courses/nxrm-config-100/lessons/welcome-nxrmconfig100/
+
+Objectives
+By the end of this course, you will be able to…
+
+	- Download, unpack, and run NXRM 3 OSS.
+	- Update security defaults, sign in, sign out, and shut down the repository manager.
+	- Configure a Maven proxy and hosted repository.
+	- Create a repository group for Maven and combine local and cached components into the repository group.
+	- Describe how to manage components of the repository group.
+	
+	
+	
+Ref: Apart from above course ref
+https://stackoverflow.com/questions/40545824/how-to-install-nexus-3-on-windows

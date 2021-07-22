@@ -1,0 +1,30 @@
+
+
+============================================================================
+Repository Management - Security Essentials:
+============================================================================
+
+
+This course will cover the essential components of the NXRM3 security model:
+
+	Users – how to think about a users role, not the individual person.
+	Roles – what defines a role, and how many roles can each user have?
+	Privileges – what is a privilege, and how does that relate to access?
+	Content selectors – how to define security points per team and/or users?
+	Realms – what is a realm, and why do I need one?
+
+
+
+https://learn.sonatype.com/courses/nxrm-sec-101/lessons/creating-and-managing-users/
+
+
+	- Users / Roles / Privileges
+	- Authentication Methods 
+		- LDAP 
+		- Realms etc 
+		
+	- 2 users by default: 
+		- Admin 
+		- Anonymous 
+	
+	

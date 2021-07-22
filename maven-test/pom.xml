@@ -1,0 +1,30 @@
+<project>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ruralit</groupId>
+	<artifactId>myfirst-proxy-app</artifactId>
+	<version>1.0.0</version>
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
+	</dependencies>
+	
+	<!-- Org Releases&Snapshots in Repository seperately maintained -->
+	<distributionManagement>
+	  <repository>
+	  <id>nexus</id>
+	  <name>pavan-ruralit-releases</name>
+	  <url>http://localhost:8081/repository/pavan-ruralit-releases/</url>
+	 </repository>
+	 <snapshotRepository>
+	  <id>nexus</id>
+	  <name>pavan-ruralit-snapshots</name>
+	  <url>http://localhost:8081/repository/pavan-ruralit-snapshots/</url>
+	 </snapshotRepository>
+	</distributionManagement>
+
+</project>

@@ -1,0 +1,52 @@
+
+
+============================================================================
+Repository Management - Setup & Installation - Hosted Repository:-
+============================================================================
+
+By the end of this lesson, you will be able to:
+
+	- Understand the general purpose and capabilities of a repository group.
+	- Recognize the need for a repository group. 
+	- Demonstrate how to create a repository group via the Maven group recipe. 
+	- Demonstrate how to download components from the Central Repository through the repository group. 
+	- Demonstrate how to navigate and manage the contents of a repository group.
+	
+	
+A repository group is:
+	- Its own access point, separate from proxy and hosted repositories.
+	- Created by adding repositories as members of a ordered list.
+	- A combined repository of locally published and remotely cached components.
+	- A unique endpoint that users can access without having to retrieve components from hosted and proxy repositories.
+	
+	
+A repository group is a one-stop location where developers can collaborate on a project with all available components assigned to it. 
+If you’re an administrator, you can dynamically add repositories without updating developer settings. If you’re a developer, 
+you can access the contents of the group by sending requests directly to the repository manager.
+
+
+The request passes through a list of combined repositories, looking for a component. The first match in the group ordering is what will be returned 
+to a developer’s local environment. These requests can be done by running a software build from your terminal.
+
+
+Repository groups become necessary if your organization has multiple teams working on multiple projects. If you’re an administrator you’ll find it 
+less cumbersome to order your proxy and hosted repositories into a group designed for a development team.
+
+
+****It’s important to note that a group doesn’t store components. You can’t publish or deploy components directly to this repository type. Groups just aggregate 
+content from other repositories. If you want to modify components in a group repository, publish those changes to a hosted repository included in the group.****
+
+
+Understanding Maven Group Repositories:-
+-----------------------------------------
+	- When you install Nexus Repository, look for one specific built-in repository called "maven-public". If you recall in Repository Manager Basics, 
+	  this pre-configured group consists of:
+		- The remote proxy for the Central Repository
+		- Maven-snapshots, a repository for you to host multiple versions of a project in development
+		- Maven-releases, a repository for you to host a stable project set for production
+
+	
+
+
+
+

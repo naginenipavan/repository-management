@@ -1,0 +1,49 @@
+
+============================================================================
+Repository Management - Setup & Installation - Hosted Repository:-
+============================================================================
+
+In the previous section, you learned how to set up a proxy repository to Maven Central and use that to cache components from the public repo. This is hugely beneficial
+and saves time, but what do you do with internal components that aren’t downloaded from a public repository, but are used by various development teams in your organization? 
+You make a hosted repository to act as the authoritative location for your in-house components.
+
+Back in the first module, you learned that the default installation of Repository Manager includes two hosted Maven repositories. The maven-releases repository uses a 
+release version policy, and the maven-snapshots repository uses a snapshot version policy.
+
+
+	- Release repositories are intended to be the place where your organization publishes internal releases. A release component is a component created by a specific, 
+	  versioned release. These components are considered to be solid, stable and perpetual to guarantee the builds that use them are repeatable over time. You can also 
+	  use this repository for third-party components that are not available in external repositories and can’t be retrieved using a configured proxy repository.
+
+	- Snapshot components change over time and are generated during active development of a software project. Continuous development is typically performed with snapshot
+   	  versions supported by the Snapshot version policy. These version values have to end with -SNAPSHOT in the POM file. This allows repeated uploads where the actual 
+	  number used is composed of a date/timestamp and an enumerator and the retrieval can still use the -SNAPSHOT version string.
+	  
+	
+	- configuration
+		- settings.xml 
+			-   <servers>
+					<server>
+					  <id>nexus</id>
+					  <username>admin</username>
+					  <password>admin</password> 
+					</server>
+				  </servers>
+		
+		- pom.xml
+		 	-	<!-- Org Releases&Snapshots in Repository seperately maintained -->
+					<distributionManagement>
+					  <repository>
+					  <id>nexus</id>
+					  <name>pavan-ruralit-releases</name>
+					  <url>http://localhost:8081/repository/pavan-ruralit-releases/</url>
+					 </repository>
+					 <snapshotRepository>
+					  <id>nexus</id>
+					  <name>pavan-ruralit-snapshots</name>
+					  <url>http://localhost:8081/repository/pavan-ruralit-snapshots/</url>
+					 </snapshotRepository>
+					</distributionManagement>
+					
+			- name and url are importnat here and Repository in Nexus type is also on same importance while you create it whether it is snapshots/releases.
+		

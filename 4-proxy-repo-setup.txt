@@ -1,0 +1,87 @@
+
+
+============================================================================
+Repository Management - Setup & Installation - Proxy Repository:-
+============================================================================
+
+Maven Proxy Repos:-
+---------------------
+	- About Maven
+		- Apache Maven (Maven) is a software project management tool that serves as the centralized location for your project’s builds, reporting, and documentation. 
+		  Maven relies on the Central Repository — a public repository for Java components.
+	
+	- The Central Repository houses components that are also known as “artifacts” in the Maven world. These can be anything that are produced or used by your project 
+	  including JARs, source and binary distributions, and WARs. Each of these Maven components are uniquely identified by a group ID, artifact ID, and version.
+	 
+When you download and install Maven without any customization, it retrieves components from the Central Repository. When you configure a proxy to the Central Repository,
+Nexus Repository Manager retrieves and caches those same components for use across your teams. This lets you efficiently source, store, share, and deploy software components 
+without relying on direct download from Maven Central, repeated downloads, or manual distribution.
+
+
+	- Exercise : 
+		- settings.xml: 
+			- <settings>
+				  <mirrors>
+					<mirror>
+					  <!--This sends everything else to /public to the maven central - Proxy Repository -->
+					  <id>nexus</id>
+					  <mirrorOf>*</mirrorOf>
+					  <url>http://localhost:8081/repository/maven-proxy-pavan-test/</url>
+					</mirror>
+				  </mirrors>
+				  
+				  
+				  <profiles>
+					<profile>
+					  <id>nexus</id>
+					  <!--Enable snapshots for the built in central repo to direct -->
+					  <!--all requests to nexus via the mirror -->
+					  <repositories>
+						<repository>
+						  <id>central</id>
+						  <url>http://central</url>
+						  <releases><enabled>true</enabled></releases>
+						  <snapshots><enabled>true</enabled></snapshots>
+						</repository>
+					  </repositories>
+					 <pluginRepositories>
+						<pluginRepository>
+						  <id>central</id>
+						  <url>http://central</url>
+						  <releases><enabled>true</enabled></releases>
+						  <snapshots><enabled>true</enabled></snapshots>
+						</pluginRepository>
+					  </pluginRepositories>
+					</profile>
+				  </profiles>
+
+
+				  <activeProfiles>
+					<!--make the profile active all the time -->
+					<activeProfile>nexus</activeProfile>
+				  </activeProfiles>
+				  
+				  <servers>
+					<server>
+					  <id>nexus</id>
+					  <username>admin</username>
+					  <password>admin</password> 
+					</server>
+				  </servers>		  
+				</settings>
+				
+			- pom.xml - for new maven project
+				<project>
+					<modelVersion>4.0.0</modelVersion>
+					<groupId>com.ruralit</groupId>
+					<artifactId>nexus-first-proxy-application</artifactId>
+					<version>1.0-SNAPSHOT</version>
+					<dependencies>
+					<dependency>
+						<groupId>junit</groupId>
+						<artifactId>junit</artifactId>
+						<version>4.10</version>
+						</dependency>
+					</dependencies>
+				</project>
+			
